@@ -1,0 +1,97 @@
+
+.carousel-container {
+    margin-top: 100px;
+    background-color: aqua;
+    width: 300vw;
+    transition: transform 1s;  
+}
+
+
+
+
+.picture-container {
+    width: 100vh;
+    float: left;
+    
+    
+}
+.picture-container  img {
+    width: 100%;
+}
+
+.overflow-container {
+    overflow: hidden;
+}
+
+.btn-container {
+ display: flex;
+    width: 100%;
+    height: 50px;
+   
+    
+}
+
+.btn1 {
+    margin: auto;
+}
+
+.btn2 {
+    margin: auto;
+}
+
+.btn3 {
+    margin: auto;
+    
+}
+
+.all-btn {
+    width: 250px;
+    height: 40px;
+}
+
+.next-btn-left {
+    position: absolute;
+    top:45%;
+    right: 0%;
+    width: 50px;
+    height: 50px;
+}
+
+.next-btn-right {
+    position: absolute;
+    top:45%;
+    left: 0%;
+    width: 50px;
+    height: 50px;
+}
+
+.nav-bar {
+width: 100%;
+    height: 50px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 5;
+    
+    
+}
+.nav-bar h3{
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+.background-color-change {
+    background-color: black;
+    color: white;
+}
+
+body {
+    height: 2000px;
+}
+
+.change-text {
+    transition: all 1s;
+    transform: scale(1.2)
+}
