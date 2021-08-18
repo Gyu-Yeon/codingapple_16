@@ -4,6 +4,44 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+  ul.list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #ccc;
+  }
+  ul.list::after {
+	content: '';
+	display: block;
+	clear: both;
+  }
+  .tab-button {
+	display: block;
+	padding: 10px 20px 10px 20px;
+	float: left;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	color: grey;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  .active {
+	border-top: 2px solid orange;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid white;
+	border-left: 1px solid #ccc;
+	color: black;
+	margin-top: -2px;
+  }
+  .tab-content {
+	display: none;
+	padding: 10px;
+  }
+  .show {
+	display: block;
+  }
+</style>
 </head>
 
 <body>
@@ -29,15 +67,93 @@
         <button class="next-btn-left">next</button>
         <button class="next-btn-right">next</button>
     </div>
+<br><br><br><br><br><br>
 
 
+
+
+
+<div class="container mt-5">
+	<ul class="list">
+		<li class="tab-button">Products</li>
+		<li class="tab-button active">Information</li>
+		<li class="tab-button">Shipping</li>
+	</ul>
+
+	<div class="tab-content">
+		<p class="ptag">상품설명입니다. Product</p>
+	</div>
+	<div class="tab-content show">
+		<p class="ptag">상품정보입니다. Info</p>
+	</div>
+	<div class="tab-content">
+		<p class="ptag">배송정보입니다. Shipping</p>
+	</div>
+</div>
     
 
-    <div id="chartContainer" style="height: 370px; width:100%;"></div>
+    
+    
+    
+    
+    
+    
+    
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script>
+        
+        
+        
+        
+// $('.tab-button').eq(0).click(function(){
+//    $('.tab-button').removeClass('active');    
+//    $('.tab-content').removeClass('show');
+//    $('.tab-button').eq(0).addClass('active');
+//    $('.tab-content').eq(0).addClass('show');
+//
+//})
+// 
+//                
+// $('.tab-button').eq(1).click(function(){
+//    $('.tab-button').removeClass('active');    
+//    $('.tab-content').removeClass('show');
+//    $('.tab-button').eq(1).addClass('active');
+//    $('.tab-content').eq(1).addClass('show');
+//
+//})
+//        
+//                
+// $('.tab-button').eq(2).click(function(){
+//    $('.tab-button').removeClass('active');    
+//    $('.tab-content').removeClass('show');
+//    $('.tab-button').eq(2).addClass('active');
+//    $('.tab-content').eq(2).addClass('show');
+//
+// })
+        
+          
+    for(let i = 0; i<3; i++){
+        $('.tab-button').eq(i).click(function(){
+    $('.tab-button').removeClass('active');    
+    $('.tab-content').removeClass('show');
+    $('.tab-button').eq(i).addClass('active');
+    $('.tab-content').eq(i).addClass('show');
+
+ })
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         $(window).scroll(function() {
             if ($(window).scrollTop() > 100) {
                 $('.nav-bar').addClass(' background-color-change')
@@ -119,52 +235,8 @@
             $('.carousel-container').css('transform', 'translateX(0vw)')
         });
     </script>
-    <script>
-        window.onload = function() {
-
-            var dps = []; // dataPoints
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "Dynamic Data"
-                },
-                data: [{
-                    type: "line",
-                    dataPoints: dps
-                }]
-            });
-
-            var xVal = 0;
-            var yVal = 100;
-            var updateInterval = 1000;
-            var dataLength = 20; // number of dataPoints visible at any point
-
-            var updateChart = function(count) {
-
-                count = count || 1;
-
-                for (var j = 0; j < count; j++) {
-                    yVal = yVal + Math.round(5 + Math.random() * (-5 - 5));
-                    dps.push({
-                        x: xVal,
-                        y: yVal
-                    });
-                    xVal++;
-                }
-
-                if (dps.length > dataLength) {
-                    dps.shift();
-                }
-
-                chart.render();
-            };
-
-            updateChart(dataLength);
-            setInterval(function() {
-                updateChart()
-            }, updateInterval);
-
-        }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   
+    
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="tab.js"></script>
 </body></html>
